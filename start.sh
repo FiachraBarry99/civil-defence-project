@@ -9,6 +9,9 @@ ip link set $HOTSPOT_INTERFACE up
 ip addr flush dev $HOTSPOT_INTERFACE
 ip addr add $HOTSPOT_IP/24 dev $HOTSPOT_INTERFACE
 
+echo "[*] Scanning for laptop hotspot..."
+nmcli device wifi rescan ifname $UPLINK_INTERFACE
+sleep 3
 echo "[*] Connecting uplink to laptop hotspot via NetworkManager..."
 nmcli device wifi connect "$LAPTOP_SSID" password "$LAPTOP_PASSWORD" ifname $UPLINK_INTERFACE
 sleep 3
