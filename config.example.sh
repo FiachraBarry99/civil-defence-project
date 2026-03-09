@@ -1,0 +1,12 @@
+#!/bin/bash
+
+HOTSPOT_INTERFACE="wlan1"
+UPLINK_INTERFACE="wlan0"
+HOTSPOT_SSID="PiRelay"
+HOTSPOT_PASSWORD="your-hotspot-password"
+HOTSPOT_IP="192.168.50.1"
+HOTSPOT_SUBNET="192.168.50.0/24"
+DHCP_RANGE_START="192.168.50.10"
+DHCP_RANGE_END="192.168.50.50"
+LAPTOP_SSID="your-laptop-hotspot-ssid"
+LAPTOP_PASSWORD="your-laptop-hotspot-password"

@@ -1,0 +1,5 @@
+config.sh
+*.key
+*.pem
+*.env
+.env*
