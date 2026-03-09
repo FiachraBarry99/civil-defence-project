@@ -9,6 +9,7 @@ apt-get update -q
 apt-get install -y hostapd dnsmasq iptables-persistent
 
 echo "[*] Stopping services during configuration..."
+systemctl unmask hostapd 2>/dev/null || true
 systemctl stop hostapd 2>/dev/null || true
 systemctl stop dnsmasq 2>/dev/null || true
 
