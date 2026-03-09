@@ -9,10 +9,9 @@ ip link set $HOTSPOT_INTERFACE up
 ip addr flush dev $HOTSPOT_INTERFACE
 ip addr add $HOTSPOT_IP/24 dev $HOTSPOT_INTERFACE
 
-echo "[*] Connecting uplink to laptop hotspot..."
-wpa_supplicant -B -i $UPLINK_INTERFACE -c /etc/wpa_supplicant/wpa_supplicant-${UPLINK_INTERFACE}.conf
+echo "[*] Connecting uplink to laptop hotspot via NetworkManager..."
+nmcli device wifi connect "$LAPTOP_SSID" password "$LAPTOP_PASSWORD" ifname $UPLINK_INTERFACE
 sleep 3
-dhclient $UPLINK_INTERFACE
 
 echo "[*] Setting up NAT..."
 iptables -t nat -F

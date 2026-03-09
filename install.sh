@@ -64,20 +64,6 @@ NM
 systemctl reload NetworkManager
 sleep 2
 
-echo "[*] Writing laptop wifi credentials..."
-cat > /etc/wpa_supplicant/wpa_supplicant-${UPLINK_INTERFACE}.conf << WPA
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=GB
-
-network={
-    ssid="$LAPTOP_SSID"
-    psk="$LAPTOP_PASSWORD"
-    key_mgmt=WPA-PSK
-}
-WPA
-chmod 600 /etc/wpa_supplicant/wpa_supplicant-${UPLINK_INTERFACE}.conf
-
 echo "[*] Installing systemd services..."
 cp "$SCRIPT_DIR/pi-router.service" /etc/systemd/system/
 systemctl daemon-reload
