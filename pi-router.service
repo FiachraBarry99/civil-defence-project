@@ -1,0 +1,12 @@
+[Unit]
+Description=Pi Router NAT Service
+After=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/opt/pi-router/start.sh
+ExecStop=/opt/pi-router/stop.sh
+
+[Install]
+WantedBy=multi-user.target
