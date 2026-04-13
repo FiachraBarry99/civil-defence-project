@@ -1,5 +1,6 @@
 #!/bin/bash
 
+MAX_RETRIES=5
 source "$( cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd )/config.sh"
 
 check_halow_link() {
